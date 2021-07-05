@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# Deploy on Heroku
+
+# curl https://cli-assets.heroku.com/install.sh | sh
+# heroku login
+# heroku create smart4l-websockets-mock
+# heroku buildpacks:set heroku/python
+# git push heroku main
+
 # Websocket Server Example
 
 # pip3 install websockets
@@ -10,6 +18,7 @@ import time
 import threading
 import random
 import json
+import os
 
 class WebSocketServer:
   def __init__(self):
@@ -45,7 +54,7 @@ class WebSocketServerController:
 
   def start_websocket_server(self):    
     asyncio.set_event_loop(self.loop)
-    self.server = websockets.serve(self.websocket_server.handler, "0.0.0.0", 8080)
+    self.server = websockets.serve(self.websocket_server.handler, "0.0.0.0", int(os.environ["PORT"]))
     loop.run_until_complete(self.server)
     loop.run_forever()
 
