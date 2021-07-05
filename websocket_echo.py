@@ -51,7 +51,8 @@ class ServerWS():
     async def distribute(self, ws: WebSocketServerProtocol) -> None:
         # TODO find what do this thing
         async for message in ws:
-            await self.send_to_clients(message)
+            # await self.send_to_clients(message)
+            pass
 
     # Close connection for all client in clients list 
     async def close_all_connections(self):
