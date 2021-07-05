@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Deploy on Heroku
+# Websocket Server Example
+# https://websockets.readthedocs.io/en/stable/index.html
 
+# - Run it -
+# pip3 install websockets
+# ./websocket.py
+
+# - Deploy on Heroku -
 # curl https://cli-assets.heroku.com/install.sh | sh
 # heroku login
 # heroku create smart4l-websockets-mock
 # heroku buildpacks:set heroku/python
 # git push heroku main
 
-# Websocket Server Example
-
-# pip3 install websockets
 import asyncio
 import websockets
 import time
