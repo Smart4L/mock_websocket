@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+import os
 import asyncio
 import json
 import logging
@@ -126,7 +126,7 @@ class Service(Thread):
 
 
 loop = asyncio.get_event_loop()
-ws = Smart4lWebSocket(loop, host="0.0.0.0", port=8080)
+ws = Smart4lWebSocket(loop, host="0.0.0.0", port=int(os.environ["PORT"]))
 Service(ws).start()
 
 
